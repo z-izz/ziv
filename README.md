@@ -8,7 +8,8 @@
 <h2 align="center">Your text editor that's colorful and simpler.</h2>
 
 <p align="center">ziv is a simple text editor that is made using .NET 7.</p>
-<p align="center">Unlike vim, it has no commands, no powerful features.</p>
+<p align="center">Unlike vim, it has no powerful features.</p>
+<p align="center">The only things you can do in this editor is write, save, and quit.</p>
 <p align="center">But it's a text editor. That's what's important.</p>
 
 <h2 align="center">Features</h2>
