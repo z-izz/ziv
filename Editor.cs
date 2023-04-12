@@ -4,9 +4,6 @@ namespace ziv
 {
     public class Editor
     {
-        // If ziv ended yet.
-        private static bool Ended = false;
-        
         // A list of colors that are hard to see if the white text is in front of it
         private static ConsoleColor[] LightColors = { ConsoleColor.White, ConsoleColor.DarkCyan,ConsoleColor.DarkYellow,ConsoleColor.Cyan,ConsoleColor.Yellow,ConsoleColor.Gray,ConsoleColor.Green,ConsoleColor.Blue,ConsoleColor.Magenta };
         public static void Entry(string file)
@@ -29,15 +26,26 @@ namespace ziv
             while (true)
             {
                 string Buffer2 = Console.ReadLine();
-                if (Buffer2 == "$-wq")
+                if (Buffer2 == "$-wq") // Write, then quit
                 {
                     Console.Clear();
                     Console.WriteLine("Saving file to disk...");
                     File.WriteAllText(file,Program.buffer);
+                    Console.WriteLine("I finished! Have a good day/night!");
                     Environment.Exit(0);
-                } else if (Buffer2 == "$-q")
+                } else if (Buffer2 == "$-q") // quit
                 {
                     Console.Clear();
+                    Environment.Exit(0);
+                }
+                else if (Buffer2 == "$-waq") // Write as, then quit
+                {
+                    Console.Clear();
+                    Console.Write("Where do you want to save this text? ");
+                    string dest = Console.ReadLine();
+                    Console.WriteLine("Saving file to disk...");
+                    File.WriteAllText(dest,Program.buffer);
+                    Console.WriteLine("I finished! Have a good day/night!");
                     Environment.Exit(0);
                 }
                 else
