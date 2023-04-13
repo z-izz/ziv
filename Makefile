@@ -2,7 +2,7 @@ CSC=dotnet
 projname=ziv
 tgtversion=7.0
 tgtsys=linux-x64
-bin=bin/Debug/net$(tgtversion)/$(tgtsys)/$(projname).dll
+bin=bin/Debug/net$(tgtversion)/$(tgtsys)/publish/$(projname)
 CSC_flags=-r $(tgtsys) --self-contained false
 all: file
 build:
@@ -14,4 +14,7 @@ file:
 	$(CSC) publish -r $(tgtsys) -p:PublishSingleFile=true --self-contained false
 
 run:
-	@ dotnet $(bin)
+	@ $(bin)
+install:
+	@ echo Installing ziv into /bin/ziv
+	sudo cp $(bin) /bin/$(projname)

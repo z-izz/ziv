@@ -22,6 +22,7 @@ namespace ziv
                         if (args[0] == "--version" || args[0] == "-v")
                         {
                             Console.WriteLine($"ziv {version}");
+                            Environment.Exit(0);
                         }
                         else
                         {
