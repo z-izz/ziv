@@ -31,7 +31,7 @@ namespace ziv
                     Console.Clear();
                     Console.WriteLine("Saving file to disk...");
                     File.WriteAllText(file,Program.buffer);
-                    Console.WriteLine("I finished! Have a good day/night!");
+                    Console.WriteLine("ZIV has finished! Have a good day/night!"); //"I" have not finished.
                     Environment.Exit(0);
                 } else if (Buffer2 == "$-q") // quit
                 {
