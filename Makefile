@@ -1,17 +1,21 @@
+host=linux-x64
 CSC=dotnet
 projname=ziv
-tgtversion=7.0
-tgtsys=linux-x64
-bin=bin/Debug/net$(tgtversion)/$(tgtsys)/publish/$(projname)
-CSC_flags=-r $(tgtsys) --self-contained false
-all: file
-build:
-	@ echo Building $(projname)...
-	$(CSC) build $(CSC_flags)
+tgtversion=8.0
+bin=bin/Release/net$(tgtversion)/$(host)/publish/$(projname)
+all: multiplatform readytest
 
 file:
 	@ echo Building $(projname) into one file...
-	$(CSC) publish -r $(tgtsys) -p:PublishSingleFile=true --self-contained false
+	$(CSC) publish -r $(host) -p:PublishSingleFile=true --self-contained false
+
+multiplatform:
+	@ echo Building $(projname) into one file, for both linux-x64 and win-x64 targets
+	$(CSC) publish -r linux-x64 -p:PublishSingleFile=true --self-contained false
+	$(CSC) publish -r win-x64 -p:PublishSingleFile=true --self-contained false
+
+readytest:
+	cp $(bin) .
 
 run:
 	@ $(bin)

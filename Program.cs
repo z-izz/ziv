@@ -5,7 +5,7 @@ namespace ziv
     public class Program
     {
         public static Random rng = new Random(); // Global random object
-        public static string version = "Milestone 1 [Build 230412]"; // Version string
+        public static string version = "Milestone 1 [Build 240223]"; // Version string
         public static string buffer = ""; // Text buffer
         public static void Main(string[] args) // Runner, sets up the buffer
         {
